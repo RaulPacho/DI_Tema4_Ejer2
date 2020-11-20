@@ -16,6 +16,7 @@ namespace DI_Tema4_Ejer2
         {
             InitializeComponent();
             this.KeyPreview = true;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,6 +30,21 @@ namespace DI_Tema4_Ejer2
             {
                 this.Close();
             }
+            if(e.KeyCode == Keys.Enter)
+            {
+                if(textBox1.Focused || textBox2.Focused || textBox3.Focused)
+                {
+                   
+                }
+                else
+                {
+                    if (textBox4.Focused)
+                    {
+                        
+                    }
+                }
+            }
+            
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -59,6 +75,7 @@ namespace DI_Tema4_Ejer2
             {
                 if((r <= 255 && r>= 0) && (g <= 255 && g >= 0) && (b <= 255 && b >= 0)) {
                     this.BackColor = Color.FromArgb(r,g,b);
+                    label4.Text = "";
                 }
                 else
                 {
@@ -70,6 +87,31 @@ namespace DI_Tema4_Ejer2
                 label4.Text = "No es un num tiiio";
             }
 
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            panel1.BackgroundImage = Image.FromFile(textBox4.Text);
+        }
+
+        private void TextBox4_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = this.button3;
+        }
+
+        private void TextBox1_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = this.button2;
+        }
+
+        private void Button2_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Green;
+        }
+
+        private void Button2_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = new Button().BackColor;
         }
     }
 }
